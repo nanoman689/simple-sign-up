@@ -5,7 +5,7 @@ describe('optIn', function() {
         compiled,
         html,
         someone;
-
+    beforeEach(module("my.templates"));
     beforeEach(module("myApp"));
     beforeEach(module('signupform.html'));
     beforeEach(inject(function($rootScope, $compile) {
@@ -18,6 +18,5 @@ describe('optIn', function() {
     }));
     it('should render out a sign up box', function(){
         expect(element.text()).toContain('Acme, Inc.');
-        expect(element.text()).toContain(someone);
     })
 });

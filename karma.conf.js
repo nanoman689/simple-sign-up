@@ -3,6 +3,9 @@
 
 module.exports = function(config) {
   config.set({
+    preprocessors: {
+      '*.html': ['ng-html2js']
+    },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -18,9 +21,19 @@ module.exports = function(config) {
       'bower_components/angular/angular.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'js/*.js',
-      'appSpec.js'
+      'appSpec.js',
+      '**/*.html'
     ],
 
+    ngHtml2JsPreprocessor: {
+        // If your build process changes the path to your templates,
+        // use stripPrefix and prependPrefix to adjust it.
+        stripPrefix: "./",
+        prependPrefix: "./",
+
+        // the name of the Angular module to create
+        moduleName: "my.templates"
+    },
 
     // list of files to exclude
     exclude: [
